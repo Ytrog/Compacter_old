@@ -38,6 +38,7 @@
             this.radioList = new System.Windows.Forms.RadioButton();
             this.listBoxMethods = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -47,10 +48,11 @@
             this.flowLayoutPanel1.Controls.Add(this.btnSelectFolder);
             this.flowLayoutPanel1.Controls.Add(this.txtSelectedFolder);
             this.flowLayoutPanel1.Controls.Add(this.groupBox1);
+            this.flowLayoutPanel1.Controls.Add(this.btnAdd);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(800, 468);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(399, 225);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // btnSelectFolder
@@ -65,10 +67,12 @@
             // 
             // txtSelectedFolder
             // 
+            this.flowLayoutPanel1.SetFlowBreak(this.txtSelectedFolder, true);
             this.txtSelectedFolder.Location = new System.Drawing.Point(130, 3);
             this.txtSelectedFolder.Name = "txtSelectedFolder";
             this.txtSelectedFolder.Size = new System.Drawing.Size(241, 22);
             this.txtSelectedFolder.TabIndex = 1;
+            this.txtSelectedFolder.TextChanged += new System.EventHandler(this.txtSelectedFolder_TextChanged);
             // 
             // folderBrowserDialog1
             // 
@@ -82,7 +86,7 @@
             this.groupBox1.Controls.Add(this.radioList);
             this.groupBox1.Controls.Add(this.radioUncompress);
             this.groupBox1.Controls.Add(this.radioCompress);
-            this.groupBox1.Location = new System.Drawing.Point(377, 3);
+            this.groupBox1.Location = new System.Drawing.Point(3, 32);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(280, 150);
             this.groupBox1.TabIndex = 2;
@@ -148,11 +152,21 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Method";
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Enabled = false;
+            this.btnAdd.Location = new System.Drawing.Point(289, 32);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            // 
             // AddFolder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 468);
+            this.ClientSize = new System.Drawing.Size(399, 225);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "AddFolder";
             this.Text = "Add Folder";
@@ -176,5 +190,6 @@
         private System.Windows.Forms.RadioButton radioCompress;
         private System.Windows.Forms.ListBox listBoxMethods;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnAdd;
     }
 }

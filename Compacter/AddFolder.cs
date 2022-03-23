@@ -52,5 +52,10 @@ namespace Compacter
         {
             handleRadioEvent();
         }
+
+        private void txtSelectedFolder_TextChanged(object sender, EventArgs e)
+        {
+            btnAdd.Enabled = !string.IsNullOrWhiteSpace(txtSelectedFolder.Text);
+        }
     }
 }

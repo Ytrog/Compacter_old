@@ -10,17 +10,20 @@ using System.Windows.Forms;
 
 namespace Compacter
 {
-    public partial class Main : Form
+    public partial class AddFolder : Form
     {
-        public Main()
+        public AddFolder()
         {
             InitializeComponent();
         }
 
-        private void tsbAddFolder_Click(object sender, EventArgs e)
+        private void btnSelectFolder_Click(object sender, EventArgs e)
         {
-            AddFolder addFolder = new AddFolder();
-            addFolder.ShowDialog(this);
+            if (folderBrowserDialog1.ShowDialog(this) == DialogResult.OK)
+            {
+                txtSelectedFolder.Text = folderBrowserDialog1.SelectedPath;
+            }
+
         }
     }
 }

@@ -55,7 +55,7 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.dataGridView1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 399);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 401);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -75,7 +75,7 @@
             this.toolStripProgressBar1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 0);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(800, 24);
+            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
             this.statusStrip1.TabIndex = 0;
             // 
             // toolStrip1
@@ -87,7 +87,7 @@
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(201, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(240, 27);
             this.toolStrip1.TabIndex = 0;
             // 
             // tsbAddFolder
@@ -97,6 +97,7 @@
             this.tsbAddFolder.Name = "tsbAddFolder";
             this.tsbAddFolder.Size = new System.Drawing.Size(105, 24);
             this.tsbAddFolder.Text = "Add folder";
+            this.tsbAddFolder.Click += new System.EventHandler(this.tsbAddFolder_Click);
             // 
             // dataGridView1
             // 
@@ -105,7 +106,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(800, 399);
+            this.dataGridView1.Size = new System.Drawing.Size(800, 401);
             this.dataGridView1.TabIndex = 0;
             // 
             // toolStripButton1
@@ -119,7 +120,7 @@
             // toolStripProgressBar1
             // 
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 18);
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
             this.toolStripProgressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             // 
             // Main

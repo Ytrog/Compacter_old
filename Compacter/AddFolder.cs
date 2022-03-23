@@ -25,5 +25,32 @@ namespace Compacter
             }
 
         }
+
+        private void radioCompress_CheckedChanged(object sender, EventArgs e)
+        {
+            handleRadioEvent();
+        }
+
+        private void handleRadioEvent()
+        {
+            if (radioCompress.Checked || radioUncompress.Checked)
+            {
+                listBoxMethods.Enabled = true;
+            }
+            else
+            {
+                listBoxMethods.Enabled = false;
+            }
+        }
+
+        private void radioUncompress_CheckedChanged(object sender, EventArgs e)
+        {
+            handleRadioEvent();
+        }
+
+        private void radioList_CheckedChanged(object sender, EventArgs e)
+        {
+            handleRadioEvent();
+        }
     }
 }

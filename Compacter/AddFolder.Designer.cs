@@ -32,13 +32,21 @@
             this.btnSelectFolder = new System.Windows.Forms.Button();
             this.txtSelectedFolder = new System.Windows.Forms.TextBox();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioCompress = new System.Windows.Forms.RadioButton();
+            this.radioUncompress = new System.Windows.Forms.RadioButton();
+            this.radioList = new System.Windows.Forms.RadioButton();
+            this.listBoxMethods = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.btnSelectFolder);
             this.flowLayoutPanel1.Controls.Add(this.txtSelectedFolder);
+            this.flowLayoutPanel1.Controls.Add(this.groupBox1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -67,6 +75,79 @@
             this.folderBrowserDialog1.RootFolder = System.Environment.SpecialFolder.MyComputer;
             this.folderBrowserDialog1.ShowNewFolderButton = false;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.listBoxMethods);
+            this.groupBox1.Controls.Add(this.radioList);
+            this.groupBox1.Controls.Add(this.radioUncompress);
+            this.groupBox1.Controls.Add(this.radioCompress);
+            this.groupBox1.Location = new System.Drawing.Point(377, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(280, 150);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Options";
+            // 
+            // radioCompress
+            // 
+            this.radioCompress.AutoSize = true;
+            this.radioCompress.Location = new System.Drawing.Point(7, 25);
+            this.radioCompress.Name = "radioCompress";
+            this.radioCompress.Size = new System.Drawing.Size(92, 21);
+            this.radioCompress.TabIndex = 0;
+            this.radioCompress.Text = "Compress";
+            this.radioCompress.UseVisualStyleBackColor = true;
+            this.radioCompress.CheckedChanged += new System.EventHandler(this.radioCompress_CheckedChanged);
+            // 
+            // radioUncompress
+            // 
+            this.radioUncompress.AutoSize = true;
+            this.radioUncompress.Location = new System.Drawing.Point(7, 52);
+            this.radioUncompress.Name = "radioUncompress";
+            this.radioUncompress.Size = new System.Drawing.Size(108, 21);
+            this.radioUncompress.TabIndex = 1;
+            this.radioUncompress.Text = "Uncompress";
+            this.radioUncompress.UseVisualStyleBackColor = true;
+            this.radioUncompress.CheckedChanged += new System.EventHandler(this.radioUncompress_CheckedChanged);
+            // 
+            // radioList
+            // 
+            this.radioList.AutoSize = true;
+            this.radioList.Checked = true;
+            this.radioList.Location = new System.Drawing.Point(7, 77);
+            this.radioList.Name = "radioList";
+            this.radioList.Size = new System.Drawing.Size(51, 21);
+            this.radioList.TabIndex = 2;
+            this.radioList.TabStop = true;
+            this.radioList.Text = "List";
+            this.radioList.UseVisualStyleBackColor = true;
+            this.radioList.CheckedChanged += new System.EventHandler(this.radioList_CheckedChanged);
+            // 
+            // listBoxMethods
+            // 
+            this.listBoxMethods.Enabled = false;
+            this.listBoxMethods.ItemHeight = 16;
+            this.listBoxMethods.Items.AddRange(new object[] {
+            "NTFS",
+            "EXE:XPRESS4K",
+            "EXE:XPRESS8K",
+            "EXE:XPRESS16K",
+            "EXE:LZX"});
+            this.listBoxMethods.Location = new System.Drawing.Point(146, 52);
+            this.listBoxMethods.Name = "listBoxMethods";
+            this.listBoxMethods.Size = new System.Drawing.Size(120, 84);
+            this.listBoxMethods.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(146, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 17);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Method";
+            // 
             // AddFolder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -77,6 +158,8 @@
             this.Text = "Add Folder";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -87,5 +170,11 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Button btnSelectFolder;
         private System.Windows.Forms.TextBox txtSelectedFolder;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton radioList;
+        private System.Windows.Forms.RadioButton radioUncompress;
+        private System.Windows.Forms.RadioButton radioCompress;
+        private System.Windows.Forms.ListBox listBoxMethods;
+        private System.Windows.Forms.Label label1;
     }
 }

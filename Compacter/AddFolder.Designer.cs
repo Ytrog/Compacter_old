@@ -168,7 +168,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(399, 225);
             this.Controls.Add(this.flowLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "AddFolder";
+            this.ShowIcon = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Add Folder";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();

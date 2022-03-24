@@ -32,11 +32,24 @@ namespace Compacter
             Path = path;
         }
 
+        private string command;
+
         public CompactAction Action { get; }
         public CompactMethod Method { get; }
         public string Path { get; }
+        public string Command {
+            get
+            {
+                if (command == null)
+                {
+                    command = AsCommand();
+                }
 
-        public string AsCommand()
+                return command;
+            }
+        }
+
+        private string AsCommand()
         {
             StringBuilder sb = new StringBuilder();
 

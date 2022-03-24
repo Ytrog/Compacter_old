@@ -49,12 +49,24 @@ namespace Compacter
             }
         }
 
+        private string FormatPath()
+        {
+            if (Path.EndsWith("\\"))
+            {
+                return $"{Path}*.*";
+            }
+            else
+            {
+                return $"{Path}\\*.*";
+            }
+        }
+
         private string AsCommand()
         {
             StringBuilder sb = new StringBuilder();
 
             sb.Append("compact ");
-            sb.Append($"{Path}\\*.* ");
+            sb.Append($"{FormatPath()} ");
             // None is only in case of List
             if (Action == CompactAction.List || Method == CompactMethod.NONE)
             {

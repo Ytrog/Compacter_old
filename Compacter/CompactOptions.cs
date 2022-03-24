@@ -15,6 +15,7 @@ namespace Compacter
 
     public enum CompactMethod
     {
+        NONE,
         NTFS,
         XPRESS4K,
         XPRESS8K,

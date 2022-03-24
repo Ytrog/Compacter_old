@@ -64,5 +64,47 @@ namespace Compacter
         {
             btnAdd.Enabled = !string.IsNullOrWhiteSpace(txtSelectedFolder.Text);
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            var action = GetAction();
+            Result = new CompactOptions(action, action == CompactAction.List? CompactMethod.NONE : GetMethod(), Path);
+        }
+
+        private CompactAction GetAction()
+        {
+            if (radioCompress.Checked)
+            {
+                return CompactAction.Compress;
+            }
+
+            if (radioUncompress.Checked)
+            {
+                return CompactAction.Uncompress;
+            }
+
+            return CompactAction.List;
+        }
+
+        private CompactMethod GetMethod()
+        {
+            string item = (string) listBoxMethods.SelectedItem;
+
+            switch (item)
+            {
+                case "NTFS":
+                    return CompactMethod.NTFS;
+                case "EXE:XPRESS4K":
+                    return CompactMethod.XPRESS4K;
+                case "EXE:XPRESS8K":
+                    return CompactMethod.XPRESS8K;
+                case "EXE:XPRESS16K":
+                    return CompactMethod.XPRESS16K;
+                case "EXE:LZX":
+                    return CompactMethod.LZX;
+                default:
+                    return CompactMethod.NONE;
+            }
+        }
     }
 }

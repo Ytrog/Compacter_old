@@ -15,12 +15,20 @@ namespace Compacter
         public Main()
         {
             InitializeComponent();
+            System.Diagnostics.Debug.Assert(commands != null, "commands is null");
+            bindingSource1.DataSource = commands;
+            dgvCommands.DataSource = bindingSource1;
         }
+
+        private List<CompactOptions> commands = new List<CompactOptions>();
 
         private void tsbAddFolder_Click(object sender, EventArgs e)
         {
             AddFolder addFolder = new AddFolder();
-            addFolder.ShowDialog(this);
+            if (addFolder.ShowDialog(this) == DialogResult.OK)
+            {
+                commands.Add(addFolder.Result);
+            }
         }
     }
 }

@@ -35,5 +35,52 @@ namespace Compacter
         public CompactAction Action { get; }
         public CompactMethod Method { get; }
         public string Path { get; }
+
+        public string AsCommand()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append("compact ");
+            sb.Append($"{Path}\\*.* ");
+            // None is only in case of List
+            if (Action == CompactAction.List || Method == CompactMethod.NONE)
+            {
+                sb.Append("/s ");
+                return sb.ToString(); // Exit early
+            }
+            else if (Action == CompactAction.Compress)
+            {
+                sb.Append("/s /c ");
+            }
+            else if (Action == CompactAction.Uncompress)
+            {
+                sb.Append("/s /u ");
+            }
+
+            // Add method
+            switch (Method)
+            {
+                case CompactMethod.NONE: // should never happen
+                    break;
+                case CompactMethod.NTFS: // add nothing as this is default method
+                    break;
+                case CompactMethod.XPRESS4K:
+                    sb.Append("/EXE:XPRESS4K");
+                    break;
+                case CompactMethod.XPRESS8K:
+                    sb.Append("/EXE:XPRESS8K");
+                    break;
+                case CompactMethod.XPRESS16K:
+                    sb.Append("/EXE:XPRESS16K");
+                    break;
+                case CompactMethod.LZX:
+                    sb.Append("/EXE:LZX");
+                    break;
+                default:
+                    break;
+            }
+
+            return sb.ToString();
+        }
     }
 }

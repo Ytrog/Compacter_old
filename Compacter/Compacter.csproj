@@ -52,6 +52,7 @@
     <Compile Include="AddFolder.Designer.cs">
       <DependentUpon>AddFolder.cs</DependentUpon>
     </Compile>
+    <Compile Include="CompactOptions.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>

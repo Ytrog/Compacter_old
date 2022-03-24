@@ -17,11 +17,18 @@ namespace Compacter
             InitializeComponent();
         }
 
+        public string Path {
+            get { return txtSelectedFolder.Text; }
+            private set { txtSelectedFolder.Text = value; }
+        }
+
+        public CompactOptions Result{ get; private set; }
+
         private void btnSelectFolder_Click(object sender, EventArgs e)
         {
             if (folderBrowserDialog1.ShowDialog(this) == DialogResult.OK)
             {
-                txtSelectedFolder.Text = folderBrowserDialog1.SelectedPath;
+                Path = folderBrowserDialog1.SelectedPath;
             }
 
         }

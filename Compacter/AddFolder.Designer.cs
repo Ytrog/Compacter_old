@@ -154,6 +154,7 @@
             // 
             // btnAdd
             // 
+            this.btnAdd.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnAdd.Enabled = false;
             this.btnAdd.Location = new System.Drawing.Point(289, 32);
             this.btnAdd.Name = "btnAdd";

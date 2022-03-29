@@ -48,5 +48,18 @@ namespace Compacter
             tsbAddFolder.Enabled = enabled;
             tsbAddFolder.Enabled = enabled;
         }
+
+        private void ctxDeleteButton_Click(object sender, EventArgs e)
+        {
+            if (dgvCommands.AllowUserToDeleteRows)
+            {
+                var rows = dgvCommands.SelectedRows;
+
+                foreach (DataGridViewRow r in rows)
+                {
+                    dgvCommands.Rows.Remove(r);
+                }
+            }
+        }
     }
 }

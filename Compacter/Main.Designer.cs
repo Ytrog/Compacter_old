@@ -38,6 +38,8 @@
             this.tsbAddFolder = new System.Windows.Forms.ToolStripButton();
             this.tsbExecute = new System.Windows.Forms.ToolStripButton();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.ctxMenuDataGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ctxDeleteButton = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1.BottomToolStripPanel.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
@@ -46,6 +48,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCommands)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            this.ctxMenuDataGrid.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripContainer1
@@ -90,10 +93,12 @@
             // dgvCommands
             // 
             this.dgvCommands.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCommands.ContextMenuStrip = this.ctxMenuDataGrid;
             this.dgvCommands.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCommands.Location = new System.Drawing.Point(0, 0);
             this.dgvCommands.Name = "dgvCommands";
             this.dgvCommands.RowTemplate.Height = 24;
+            this.dgvCommands.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCommands.Size = new System.Drawing.Size(800, 399);
             this.dgvCommands.TabIndex = 0;
             // 
@@ -127,6 +132,22 @@
             this.tsbExecute.Text = "Execute";
             this.tsbExecute.Click += new System.EventHandler(this.tsbExecute_Click);
             // 
+            // ctxMenuDataGrid
+            // 
+            this.ctxMenuDataGrid.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.ctxMenuDataGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ctxDeleteButton});
+            this.ctxMenuDataGrid.Name = "ctxMenuDataGrid";
+            this.ctxMenuDataGrid.Size = new System.Drawing.Size(123, 28);
+            // 
+            // ctxDeleteButton
+            // 
+            this.ctxDeleteButton.Name = "ctxDeleteButton";
+            this.ctxDeleteButton.Size = new System.Drawing.Size(122, 24);
+            this.ctxDeleteButton.Text = "Delete";
+            this.ctxDeleteButton.ToolTipText = "Delete the current row";
+            this.ctxDeleteButton.Click += new System.EventHandler(this.ctxDeleteButton_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -148,6 +169,7 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            this.ctxMenuDataGrid.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -162,6 +184,8 @@
         private System.Windows.Forms.ToolStripButton tsbExecute;
         private System.Windows.Forms.ToolStripProgressBar tsProgress;
         private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.ContextMenuStrip ctxMenuDataGrid;
+        private System.Windows.Forms.ToolStripMenuItem ctxDeleteButton;
     }
 }
 

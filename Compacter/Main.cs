@@ -20,7 +20,7 @@ namespace Compacter
             dgvCommands.DataSource = bindingSource1;
         }
 
-        private List<CompactOptions> commands = new List<CompactOptions>();
+        private BindingList<CompactOptions> commands = new BindingList<CompactOptions>();
 
         private void tsbAddFolder_Click(object sender, EventArgs e)
         {
@@ -28,6 +28,7 @@ namespace Compacter
             if (addFolder.ShowDialog(this) == DialogResult.OK)
             {
                 commands.Add(addFolder.Result);
+                bindingSource1.ResetBindings(false);
             }
         }
     }

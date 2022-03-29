@@ -31,5 +31,14 @@ namespace Compacter
                 bindingSource1.ResetBindings(false);
             }
         }
+
+        private async void tsbExecute_Click(object sender, EventArgs e)
+        {
+            tsProgress.Style = ProgressBarStyle.Marquee;
+
+            await CommandRunner.Run(commands);
+
+            tsProgress.Style = ProgressBarStyle.Continuous;
+        }
     }
 }

@@ -101,6 +101,8 @@
             this.dgvCommands.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCommands.Size = new System.Drawing.Size(800, 399);
             this.dgvCommands.TabIndex = 0;
+            this.dgvCommands.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvCommands_RowsAdded);
+            this.dgvCommands.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgvCommands_RowsRemoved);
             // 
             // toolStrip1
             // 
@@ -111,7 +113,7 @@
             this.tsbExecute});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(201, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(240, 27);
             this.toolStrip1.TabIndex = 0;
             // 
             // tsbAddFolder
@@ -125,6 +127,7 @@
             // 
             // tsbExecute
             // 
+            this.tsbExecute.Enabled = false;
             this.tsbExecute.Image = ((System.Drawing.Image)(resources.GetObject("tsbExecute.Image")));
             this.tsbExecute.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbExecute.Name = "tsbExecute";

@@ -21,6 +21,7 @@ namespace Compacter
         }
 
         private BindingList<CompactOptions> commands = new BindingList<CompactOptions>();
+        private bool running;
 
         private void tsbAddFolder_Click(object sender, EventArgs e)
         {
@@ -36,10 +37,12 @@ namespace Compacter
         {
             tsProgress.Style = ProgressBarStyle.Marquee;
             SetButtonsEnabled(false);
+            running = true;
 
             await CommandRunner.Run(commands);
 
             SetButtonsEnabled(true);
+            running = false;
             tsProgress.Style = ProgressBarStyle.Continuous;
         }
 
@@ -60,6 +63,21 @@ namespace Compacter
                     dgvCommands.Rows.Remove(r);
                 }
             }
+        }
+
+        private void dgvCommands_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            CheckRowState();
+        }
+
+        private void CheckRowState()
+        {
+            tsbExecute.Enabled = !running && dgvCommands.Rows.Count > 0;
+        }
+
+        private void dgvCommands_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            CheckRowState();
         }
     }
 }

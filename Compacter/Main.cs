@@ -35,10 +35,18 @@ namespace Compacter
         private async void tsbExecute_Click(object sender, EventArgs e)
         {
             tsProgress.Style = ProgressBarStyle.Marquee;
+            SetButtonsEnabled(false);
 
             await CommandRunner.Run(commands);
 
+            SetButtonsEnabled(true);
             tsProgress.Style = ProgressBarStyle.Continuous;
+        }
+
+        private void SetButtonsEnabled(bool enabled)
+        {
+            tsbAddFolder.Enabled = enabled;
+            tsbAddFolder.Enabled = enabled;
         }
     }
 }

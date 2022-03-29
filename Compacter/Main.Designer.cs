@@ -58,7 +58,7 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.dgvCommands);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 401);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 399);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -78,15 +78,14 @@
             this.toolStripProgressBar1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 0);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(800, 24);
             this.statusStrip1.TabIndex = 0;
             // 
             // toolStripProgressBar1
             // 
-            this.toolStripProgressBar1.Enabled = false;
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
             this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 18);
-            this.toolStripProgressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.toolStripProgressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             // 
             // dgvCommands
             // 
@@ -95,7 +94,7 @@
             this.dgvCommands.Location = new System.Drawing.Point(0, 0);
             this.dgvCommands.Name = "dgvCommands";
             this.dgvCommands.RowTemplate.Height = 24;
-            this.dgvCommands.Size = new System.Drawing.Size(800, 401);
+            this.dgvCommands.Size = new System.Drawing.Size(800, 399);
             this.dgvCommands.TabIndex = 0;
             // 
             // toolStrip1

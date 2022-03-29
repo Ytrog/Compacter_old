@@ -33,6 +33,7 @@ namespace Compacter
         }
 
         private string command;
+        private string arguments;
 
         public CompactAction Action { get; }
         public CompactMethod Method { get; }
@@ -46,6 +47,19 @@ namespace Compacter
                 }
 
                 return command;
+            }
+        }
+
+        public string Arguments
+        {
+            get
+            {
+                if (arguments == null)
+                {
+                    arguments = BuildArguments();
+                }
+
+                return arguments;
             }
         }
 
@@ -63,9 +77,13 @@ namespace Compacter
 
         private string AsCommand()
         {
+            return "compact " + Arguments;
+        }
+
+        private string BuildArguments()
+        {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append("compact ");
             sb.Append($"{FormatPath()} ");
             // None is only in case of List
             if (Action == CompactAction.List || Method == CompactMethod.NONE)

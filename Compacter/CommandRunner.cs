@@ -42,6 +42,7 @@ namespace Compacter
                 FileName = "compact.exe",
                 Arguments = command.Arguments,
                 RedirectStandardError = true,
+                RedirectStandardOutput = true,
                 UseShellExecute = false
             };
 
@@ -51,24 +52,27 @@ namespace Compacter
                 EnableRaisingEvents = true
             };
 
-           
-
-            StringBuilder sb = new StringBuilder();
-
-            // TODO apparently compact doesn't use the error stream :(
-            process.ErrorDataReceived += ((sender, e) => {
-                sb.Append(e.Data);
-            });
+            StringBuilder errorBuilder = new StringBuilder();
+            StringBuilder outputBuilder = new StringBuilder();
 
             process.Start();
 
             await Task.Run(() => process.WaitForExit());
 
-            string errors = sb.ToString();
+            string errors = process.StandardError?.ReadToEnd();
+            string output = process.StandardOutput?.ReadToEnd()?.Trim();
+
 
             if (!string.IsNullOrWhiteSpace(errors))
             {
                throw new ProcessException(errors);
+            }
+
+            if (!string.IsNullOrWhiteSpace(output))
+            {
+                // show output dialog
+                OutputForm outputForm = new OutputForm(output) { Text = command.Path };
+                outputForm.Show();
             }
         }
 

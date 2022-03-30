@@ -12,9 +12,14 @@ namespace Compacter
 {
     public partial class OutputForm : Form
     {
-        public OutputForm()
+        private OutputForm()
         {
             InitializeComponent();
+        }
+
+        public OutputForm(string text) : this()
+        {
+            tbOutput.Text = text;
         }
     }
 }

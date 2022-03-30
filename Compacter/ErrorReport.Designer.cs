@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbExceptions = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // textBox1
+            // tbExceptions
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(800, 450);
-            this.textBox1.TabIndex = 0;
+            this.tbExceptions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbExceptions.Location = new System.Drawing.Point(0, 0);
+            this.tbExceptions.Multiline = true;
+            this.tbExceptions.Name = "tbExceptions";
+            this.tbExceptions.Size = new System.Drawing.Size(800, 450);
+            this.tbExceptions.TabIndex = 0;
             // 
             // ErrorReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbExceptions);
             this.Name = "ErrorReport";
             this.Text = "Errors";
             this.ResumeLayout(false);
@@ -55,6 +55,6 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbExceptions;
     }
 }

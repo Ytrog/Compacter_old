@@ -16,5 +16,19 @@ namespace Compacter
         {
             InitializeComponent();
         }
+
+        public void ShowExceptions(IEnumerable<Exception> exceptions)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (Exception e in exceptions)
+            {
+                sb.Append($"Error:\n{e.Message}");
+            }
+
+            tbExceptions.Text = sb.ToString();
+
+            ShowDialog();
+        }
     }
 }

@@ -25,8 +25,13 @@ namespace Compacter
             }
             catch (AggregateException e)
             {
-                // TODO report errors
-                throw;
+                ErrorReport errorReport = new ErrorReport();
+                errorReport.ShowExceptions(e.InnerExceptions); // this also makes a dialog
+            }
+            catch (ProcessException e)
+            {
+                ErrorReport errorReport = new ErrorReport();
+                errorReport.ShowExceptions(new ProcessException[] { e });
             }
         }
 
@@ -35,10 +40,38 @@ namespace Compacter
             ProcessStartInfo processStartInfo = new ProcessStartInfo
             {
                 FileName = "compact.exe",
-                Arguments = command.Arguments
+                Arguments = command.Arguments,
+                RedirectStandardError = true,
+                UseShellExecute = false
             };
 
-            await Task.Run(() => Process.Start(processStartInfo));
+            Process process = new Process
+            {
+                StartInfo = processStartInfo,
+                EnableRaisingEvents = true
+            };
+
+           
+
+            StringBuilder sb = new StringBuilder();
+
+            // TODO apparently compact doesn't use the error stream :(
+            process.ErrorDataReceived += ((sender, e) => {
+                sb.Append(e.Data);
+            });
+
+            process.Start();
+
+            await Task.Run(() => process.WaitForExit());
+
+            string errors = sb.ToString();
+
+            if (!string.IsNullOrWhiteSpace(errors))
+            {
+               throw new ProcessException(errors);
+            }
         }
+
+        
     }
 }
